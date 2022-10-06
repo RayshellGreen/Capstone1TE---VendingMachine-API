@@ -37,7 +37,7 @@ public class InventoryFile {
         try (Scanner vendingMachineScan = new Scanner(vendingMachineFile)) { // calling vending machine file to read by scanner
             while (vendingMachineScan.hasNextLine()) { // Whilst vendingMachine has a next line it will scan
                 String line = vendingMachineScan.nextLine(); // print scanned words in string for user
-                String
+                //String
 
 
                         System.out.println(line); // On screen String

@@ -1,4 +1,4 @@
 package com.techelevator;
 
-public class PurchaseMenu {
+public class MoneyCounter {
 }
