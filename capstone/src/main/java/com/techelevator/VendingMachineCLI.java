@@ -12,5 +12,7 @@ public class VendingMachineCLI {
 	public static void main(String[] args) {
 		VendingMachineCLI cli = new VendingMachineCLI();
 		cli.run();
+
+
 	}
 }
