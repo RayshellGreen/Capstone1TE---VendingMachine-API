@@ -25,13 +25,13 @@ public class InventoryFile {
         try (Scanner vendingMachineScan = new Scanner(vendingMachineFile)) { // calling vending machine file to read by scanner
             while (vendingMachineScan.hasNextLine()) { // Whilst vendingMachine has a next line it will scan
                 String line = vendingMachineScan.nextLine(); // print scanned words in string for user
-                String[] pair = line.split("\\|");
-                   String code = pair[0];
-                   String name = pair[1];
-                    String rawPrice = pair[2];
-                    BigDecimal price = new BigDecimal(rawPrice);
-                    String type = pair[3];
-                    if (type.equalsIgnoreCase("Chips")) {
+                String[] quad = line.split("\\|"); // split into Array String at the end of each line
+                   String code = quad[0]; // code place area 0
+                   String name = quad[1]; // name place area 1
+                    String rawPrice = quad[2]; // price place area 2
+                    BigDecimal price = new BigDecimal(rawPrice); // converting price to currency usage
+                    String type = quad[3]; // type of snack area 3
+                    if (type.equalsIgnoreCase("Chips")) { // inventory wiill provide location and details when prompted
                         inventory.add(new Chips(name, code, price));
                     } else if(type.equalsIgnoreCase("Candy")) {
                         inventory.add(new Candy(name, code, price));
