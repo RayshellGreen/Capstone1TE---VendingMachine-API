@@ -3,6 +3,7 @@ package com.techelevator;
 import javax.sound.sampled.Line;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,22 +11,9 @@ import java.util.Scanner;
 public class InventoryFile {
 
     public static void  main(String[] args) {
-        List<String> a1List = new ArrayList<String>();
-        List<String> a2List = new ArrayList<String>();
-        List<String> a3List = new ArrayList<String>();
-        List<String> a4List = new ArrayList<String>();
-        List<String> b1List = new ArrayList<String>();
-        List<String> b2List = new ArrayList<String>();
-        List<String> b3List = new ArrayList<String>();
-        List<String> b4List = new ArrayList<String>();
-        List<String> c1List = new ArrayList<String>();
-        List<String> c2List = new ArrayList<String>();
-        List<String> c3List = new ArrayList<String>();
-        List<String> c4List = new ArrayList<String>();
-        List<String> d1List = new ArrayList<String>();
-        List<String> d2List = new ArrayList<String>();
-        List<String> d3List = new ArrayList<String>();
-        List<String> d4List = new ArrayList<String>();
+
+
+        List<Snacks> inventory = new ArrayList<>();
 
 
 
@@ -37,8 +25,21 @@ public class InventoryFile {
         try (Scanner vendingMachineScan = new Scanner(vendingMachineFile)) { // calling vending machine file to read by scanner
             while (vendingMachineScan.hasNextLine()) { // Whilst vendingMachine has a next line it will scan
                 String line = vendingMachineScan.nextLine(); // print scanned words in string for user
-                String
-
+                String[] pair = line.split("\\|");
+                   String code = pair[0];
+                   String name = pair[1];
+                    String rawPrice = pair[2];
+                    BigDecimal price = new BigDecimal(rawPrice);
+                    String type = pair[3];
+                    if (type.equalsIgnoreCase("Chips")) {
+                        inventory.add(new Chips(name, code, price));
+                    } else if(type.equalsIgnoreCase("Candy")) {
+                        inventory.add(new Candy(name, code, price));
+                    } else if (type.equalsIgnoreCase("Drink")) {
+                        inventory.add(new Drinks(name, code, price));
+                    } else if (type.equalsIgnoreCase("Gum")) {
+                    inventory.add(new Gum(name, code, price));
+                }
 
                         System.out.println(line); // On screen String
             }
