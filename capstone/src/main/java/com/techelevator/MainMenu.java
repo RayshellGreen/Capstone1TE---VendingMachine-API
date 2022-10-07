@@ -1,8 +1,13 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class MainMenu extends InventoryFile {
+public class MainMenu extends Finance{
+
+    public MainMenu(int vendingBalance, int feedMoney) {
+        super(vendingBalance, feedMoney);
+    }
 
     public static void main(String[] args) {
         try {
@@ -28,26 +33,30 @@ public class MainMenu extends InventoryFile {
                     backToMainMenu = Integer.parseInt(userInput.nextLine());
                 }
 
-            } if (mainMenuSelection == 2 || backToMainMenu == 2) {
+            }
+            if (mainMenuSelection == 2 || backToMainMenu == 2) {
                 System.out.println("(4) Feed Money \n(5) Select Product \n(6) Finish Transaction");
                 int purchaseMenuReader = Integer.parseInt((userInput.nextLine()));
                 if (purchaseMenuReader == 4) {
                     //purchase meanu reader .split (\\|
-                    System.out.println();
-                } if (purchaseMenuReader == 5) {
-                    InventoryFile inventory = new InventoryFile();
-                    System.out.println(inventory.getInventory());//need to be able to select item from inventory
-                } else {                                           //
-                    System.out.println("Transaction Finished");
+                    System.out.println("Insert bills ($1, $5 or $10)");
                 }
-            } if (mainMenuSelection == 3 || backToMainMenu == 3) {
+                BigDecimal billReader = BigDecimal.valueOf(0);
+                if (purchaseMenuReader == 5) {
+                    InventoryFile inventory = new InventoryFile();
+                    System.out.println(inventory.getInventory());
+                    billReader = userInput.nextBigDecimal();
+                }
+                if (billReader == BigDecimal.ONE) {
+                    
+                }
+            }
+            if (mainMenuSelection == 3 || backToMainMenu == 3) {
                 System.out.println("Transaction Finished");
-            } else {
-                System.out.println("Please select an item");
             }
 
 
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Please enter a number 1, 2 or 3");
         }
     }
