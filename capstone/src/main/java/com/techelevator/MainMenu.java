@@ -3,22 +3,23 @@ package com.techelevator;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class MainMenu implements Finance{
+public class MainMenu {
 
 
     private BigDecimal vendingBalance;
 
     public static void main(String[] args) {
+
+        Finance moneyMethod = new Finance();
+
+
+
+
         try {
             Scanner userInput = new Scanner(System.in);
             System.out.println("(1) Display Vending Machine Items \n(2) Purchase \n(3) Exit");
             int mainMenuSelection = Integer.parseInt(userInput.nextLine());
-            int displayItems = 1;
-            int purchaseMenu = 2;
-            int exitMachine = 3;
-            int feedMoney = 4;
-            int purchaseItem = 5;
-            int exit = 6;
+
 
 
             int backToMainMenu = 0;
@@ -32,35 +33,46 @@ public class MainMenu implements Finance{
                     backToMainMenu = Integer.parseInt(userInput.nextLine());
                 }
 
-            }
-            if (mainMenuSelection == 2 || backToMainMenu == 2) {
+            } else if (mainMenuSelection == 2) {
                 System.out.println("(4) Feed Money \n(5) Select Product \n(6) Finish Transaction");
                 int purchaseMenuReader = Integer.parseInt((userInput.nextLine()));
-                if (purchaseMenuReader == 4) {
+                    if (purchaseMenuReader == 4) {
                     //purchase meanu reader .split (\\|
-                    System.out.println("Insert bills ($1, $5 or $10)");
+                    System.out.println("Please insert total money");
+//                    String billReader = userInput.nextLine();
+                     // this line turns String into a BigDecimal
+                    moneyMethod.insertMoney(userInput.nextLine());
+                    System.out.printf("Balance: %s\n", moneyMethod.getVendingBalance()); // Balance prints BillReaders Big Decimal
+                        System.out.println("(4) Feed Money \n(5) Select Product \n(6) Finish Transaction");
+                        purchaseMenuReader = Integer.parseInt(userInput.nextLine());
+
+                    //billReaderDecimal = feedMoney       feedMoney + vendingBalance
+                    //once you finish a process you can call another method within a method.
+                    // method call out per slection will allow you to request userinput multiple times
+
+
                 }
-                BigDecimal billReader = BigDecimal.valueOf(0);
+                //BigDecimal billReader = BigDecimal.valueOf(0);
                 if (purchaseMenuReader == 5) {
                     InventoryFile inventory = new InventoryFile();
                     System.out.println(inventory.getInventory());
-                    billReader = userInput.nextBigDecimal();
                 }
-                if (billReader == BigDecimal.ONE) {
 
-                }
             }
             if (mainMenuSelection == 3 || backToMainMenu == 3) {
                 System.out.println("Transaction Finished");
             }
 
 
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             System.out.println("Please enter a number 1, 2 or 3");
         }
     }
 
-    public BigDecimal getVendingBalance() {
-        return vendingBalance;
-    }
+//    public BigDecimal getVendingBalance() {
+//        return vendingBalance;
+//    }
+
+
+
 }
