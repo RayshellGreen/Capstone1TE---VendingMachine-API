@@ -48,7 +48,7 @@ public class MainMenu extends Finance{
                     billReader = userInput.nextBigDecimal();
                 }
                 if (billReader == BigDecimal.ONE) {
-                    
+
                 }
             }
             if (mainMenuSelection == 3 || backToMainMenu == 3) {
