@@ -3,11 +3,10 @@ package com.techelevator;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class MainMenu extends Finance{
+public class MainMenu implements Finance{
 
-    public MainMenu(int vendingBalance, int feedMoney) {
-        super(vendingBalance, feedMoney);
-    }
+
+    private BigDecimal vendingBalance;
 
     public static void main(String[] args) {
         try {
@@ -59,5 +58,9 @@ public class MainMenu extends Finance{
         } catch (Exception e) {
             System.out.println("Please enter a number 1, 2 or 3");
         }
+    }
+
+    public BigDecimal getVendingBalance() {
+        return vendingBalance;
     }
 }

@@ -42,16 +42,16 @@ public class Finance {
         this.spentMoney = spentMoney;
 
     }
-
-    public BigDecimal void  Balance(BigDecimal amountSpent) {
-
-
-
+    
+    public void Balance(BigDecimal vendingBalance) {
+        
+        feedMoney += vendingBalance
+        
     }
-
+    
     //make sure users are putting in whole numbers, make it boolean for whole number clarification
-    // change things to BigDecimal
-    // Keep it as simple as possible
+    // change things to BigDecimal 
+    // Keep it as simple as possible 
 
 
 
