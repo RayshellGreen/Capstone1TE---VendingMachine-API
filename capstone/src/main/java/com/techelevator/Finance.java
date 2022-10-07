@@ -1,47 +1,57 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
+
 public class Finance {
 
 /** Once user selects exit all vending balance will be dispensed
  */
-    private int vendingBalance ;
-    private int feedMoney;
-    private int spentMoney;
+    private BigDecimal vendingBalance ;
+    private BigDecimal feedMoney;
+    private BigDecimal spentMoney;
 
 
-    public void setSpentMoney(int spentMoney) {
+    public void setSpentMoney(BigDecimal spentMoney) {
         this.spentMoney = spentMoney;
     }
 
-    public void setFeedMoney(int feedMoney) {
+    public void setFeedMoney(BigDecimal feedMoney) {
         this.feedMoney = feedMoney;
     }
 
-    public void setVendingBalance(int vendingBalance) {
+    public void setVendingBalance(BigDecimal vendingBalance) {
         this.vendingBalance = vendingBalance;
     }
 
-    public int getSpentMoney() {
+    public BigDecimal getSpentMoney() {
         return spentMoney;
     }
 
-    public int getFeedMoney() {
+    public BigDecimal getFeedMoney() {
         return feedMoney;
     }
 
-    public int getVendingBalance() {
+    public BigDecimal getVendingBalance() {
         return vendingBalance;
     }
 
-    public Finance(int vendingBalance, int feedMoney) {
+    public  void   Finance(BigDecimal vendingBalance, BigDecimal feedMoney, BigDecimal spentMoney) {
 
         this.feedMoney = feedMoney;
         this.vendingBalance = vendingBalance;
-
-        feedMoney += vendingBalance;
-        vendingBalance -= spentMoney;
+        this.spentMoney = spentMoney;
 
     }
+
+    public BigDecimal void  Balance(BigDecimal amountSpent) {
+
+
+
+    }
+
+    //make sure users are putting in whole numbers, make it boolean for whole number clarification
+    // change things to BigDecimal
+    // Keep it as simple as possible
 
 
 
