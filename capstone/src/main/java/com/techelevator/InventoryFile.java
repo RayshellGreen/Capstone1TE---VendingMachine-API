@@ -23,7 +23,6 @@ public String getInventory() {
 
 }
 
-
         // Accessing Vending machine file
         final Scanner inputFile = new Scanner(System.in);
 public InventoryFile() {
