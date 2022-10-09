@@ -27,7 +27,7 @@ public class MainMenu {
                 if (backToMainMenu == 1) {
                     System.out.println("(1) Display Vending Machine Items \n(2) Purchase \n(3) Exit");
                     backToMainMenu = Integer.parseInt(userInput.nextLine());
-                } else if (mainMenuSelection == 2) {
+                } if (backToMainMenu == 2) {
                     System.out.println("(4) Feed Money \n(5) Select Product \n(6) Finish Transaction");
                     int purchaseMenuReader = Integer.parseInt((userInput.nextLine()));
                     if (purchaseMenuReader == 4) {
@@ -89,7 +89,7 @@ public class MainMenu {
 
             }
         } catch(NumberFormatException e){
-            System.out.println("Please enter a number 1, 2 or 3");
+            System.out.println("Please enter a number 1, 2, 3, 4, 5 or 6");
         }
 
 //    public BigDecimal getVendingBalance() {
