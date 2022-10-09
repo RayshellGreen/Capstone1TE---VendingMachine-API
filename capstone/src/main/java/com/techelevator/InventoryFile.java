@@ -48,12 +48,35 @@ public InventoryFile() {
                 inventory.add(new Gum(name, code, price));
             }
             System.out.println(line); // On screen String
+            } while (vendingMachineScan.hasNextLine()) {
+        String line = vendingMachineScan.nextLine(); // print scanned words in string for user
+        String[] quad = line.split("\\|"); // split into Array String at the end of each line
+
+        if (quad[1].startsWith("A",1)) {
+            Snacks chip1 = new Chips(quad[0], quad[1], quad[2], String. // trying to pull array info into use
+                    // can't figure out how to pull quad [3].
+                    // please help me
+
+
+
+    }
+
         }
+
 
 
     } catch (FileNotFoundException e) {
         // if failed, direct user to absolute file of vending machine.
         vendingMachineFile.getAbsoluteFile();
+    }
+
+    try (Scanner itemPickScanner = new Scanner((Readable) inventory)) {
+
+        while(itemPickScanner.hasNextLine()) {
+
+
+            if (line.)
+        }
     }
 
 
