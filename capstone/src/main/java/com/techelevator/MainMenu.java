@@ -11,6 +11,7 @@ public class MainMenu {
     public static void main(String[] args) {
 
         Finance moneyMethod = new Finance();
+        ChangeGiven giveChange = new ChangeGiven();
 
 
         try {
@@ -69,6 +70,10 @@ public class MainMenu {
                             System.out.println(inventory.getInventory()); //can only read the file once, need to access the data structure set up in inventory file
                             System.out.println("Please select a product");
                             purchaseMenuReader = Integer.parseInt(userInput.nextLine()); // inventory index caliin using position
+
+                        } else if (purchaseMenuReader == 6) {
+                            System.out.println("Thank you for shopping!");
+                            System.out.println(giveChange);
 
                         }
 
