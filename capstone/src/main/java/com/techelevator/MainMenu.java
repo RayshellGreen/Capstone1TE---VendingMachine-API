@@ -3,10 +3,14 @@ package com.techelevator;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class MainMenu {
+public class MainMenu extends Selection{
 
 
     private BigDecimal vendingBalance;
+
+    public MainMenu(int itemPick) {
+        super(itemPick);
+    }
 
     public static void main(String[] args) {
 
@@ -71,7 +75,9 @@ public class MainMenu {
                             System.out.println("Please select a product");
                             purchaseMenuReader = Integer.parseInt(userInput.nextLine()); // inventory index caliin using position
 
-                        } if (purchaseMenuReader == 6) {
+
+                        } else if (purchaseMenuReader == 6) {
+
                             System.out.println("Thank you for shopping!");
                             System.out.println(giveChange);
 

@@ -3,8 +3,14 @@ package com.techelevator;
 import java.math.BigDecimal;
 
 public class Chips extends Snacks{
-    public Chips(String name, String location, BigDecimal price) {
-        super(name, location, price);
+
+
+    public Chips(String code, String name, BigDecimal price, String type) {
+        super(name, code, price, type);
+        this.name = name;
+        this.code = code;
+        this.price = price;
+        this.type = type;
     }
 
     @Override

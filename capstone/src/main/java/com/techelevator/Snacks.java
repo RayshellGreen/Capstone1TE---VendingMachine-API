@@ -4,15 +4,17 @@ import java.math.BigDecimal;
 
 public abstract class Snacks {
 
-    private String name;
-    private BigDecimal price;
-    private String location;
+    public String name;
+    public BigDecimal price;
+    public String code;
+    public String type;
     private int remainingSnacks = 5;
 
-    public Snacks(String name, String location, BigDecimal price) {
+    public Snacks(String name, String code, BigDecimal price, String type) {
         this.name = name;
-        this.location = location;
+        this.code = code;
         this.price = price;
+        this.type = type;
     }
 
     public abstract String print();
@@ -22,8 +24,8 @@ public abstract class Snacks {
         return name;
     }
 
-    public String getLocation() {
-        return location;
+    public String getCode() {
+        return code;
     }
 
     public BigDecimal getPrice() {

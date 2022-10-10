@@ -32,14 +32,14 @@ public InventoryFile() {
         while (vendingMachineScan.hasNextLine()) { // Whilst vendingMachine has a next line it will scan
             String line = vendingMachineScan.nextLine(); // print scanned words in string for user
 
-            String[] quad = line.split("\\|"); // split into Array String at the end of each line
-            String code = quad[0]; // code place area 0
-            String name = quad[1]; // name place area 1
-            String rawPrice = quad[2]; // price place area 2
+            String[] itemInfo = line.split("\\|"); // split into Array String at the end of each line
+            String code = itemInfo[0]; // code place area 0
+            String name = itemInfo[1]; // name place area 1
+            String rawPrice = itemInfo[2]; // price place area 2
             BigDecimal price = new BigDecimal(rawPrice); // converting price to currency usage
-            String type = quad[3]; // type of snack area 3
-            if (type.equalsIgnoreCase("Chips")) { // inventory wiill provide location and details when prompted
-                inventory.add(new Chips(name, code, price));
+            String type = itemInfo[3]; // type of snack area 3
+            if (type.equalsIgnoreCase("Chips")) { // inventory will provide location and details when prompted
+                inventory.add(new Chips(code, name, price, type));
             } else if (type.equalsIgnoreCase("Candy")) {
                 inventory.add(new Candy(name, code, price));
             } else if (type.equalsIgnoreCase("Drink")) {
@@ -48,12 +48,35 @@ public InventoryFile() {
                 inventory.add(new Gum(name, code, price));
             }
             System.out.println(line); // On screen String
+            } while (vendingMachineScan.hasNextLine()) {
+        String line = vendingMachineScan.nextLine(); // print scanned words in string for user
+            String[] itemInfo = line.split("\\|"); // split into Array String at the end of each line
+
+        if (itemInfo[1].startsWith("A",1)) {
+            Snacks chip1 = new Chips(itemInfo[0], itemInfo[1], itemInfo[2], itemInfo[3]); // trying to pull array info into use
+                    // can't figure out how to pull quad [3].
+                    // please help me
+
+
+
+    }
+
         }
+
 
 
     } catch (FileNotFoundException e) {
         // if failed, direct user to absolute file of vending machine.
         vendingMachineFile.getAbsoluteFile();
+    }
+
+    try (Scanner itemPickScanner = new Scanner((Readable) inventory)) {
+
+        while(itemPickScanner.hasNextLine()) {
+
+
+            if (line.)
+        }
     }
 
 
