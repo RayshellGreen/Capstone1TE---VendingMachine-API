@@ -1,15 +1,13 @@
 package com.techelevator;
 
-import java.math.BigDecimal;
-
 public class Chips extends Snacks{
 
 
-    public Chips(String code, String name, BigDecimal price, String type) {
-        super(name, code, price, type);
+    public Chips(String code, String name, String price, String type) {
+        super(name, code, String.valueOf(price), type);
         this.name = name;
         this.code = code;
-        this.price = price;
+        this.price = String.valueOf(price);
         this.type = type;
     }
 

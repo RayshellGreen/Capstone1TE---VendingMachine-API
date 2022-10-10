@@ -1,19 +1,17 @@
 package com.techelevator;
 
-import java.math.BigDecimal;
-
 public abstract class Snacks {
 
     public String name;
-    public BigDecimal price;
+    public String price;
     public String code;
     public String type;
     private int remainingSnacks = 5;
 
-    public Snacks(String name, String code, BigDecimal price, String type) {
+    public Snacks(String name, String code, String price, String type) {
         this.name = name;
         this.code = code;
-        this.price = price;
+        this.price = String.valueOf(price);
         this.type = type;
     }
 
@@ -28,7 +26,7 @@ public abstract class Snacks {
         return code;
     }
 
-    public BigDecimal getPrice() {
+    public String getPrice() {
         return price;
     }
 
