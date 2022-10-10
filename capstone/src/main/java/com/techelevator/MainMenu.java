@@ -3,7 +3,7 @@ package com.techelevator;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class MainMenu extends Selection{
+public class MainMenu extends Selection {
 
 
     private BigDecimal vendingBalance;
@@ -11,8 +11,6 @@ public class MainMenu extends Selection{
     public MainMenu(int itemPick) {
         super(itemPick);
     }
-
-
 
 
     public static void main(String[] args) {
@@ -37,7 +35,8 @@ public class MainMenu extends Selection{
                 if (backToMainMenu == 1) {
                     System.out.println("(1) Display Vending Machine Items \n(2) Purchase \n(3) Exit");
                     backToMainMenu = Integer.parseInt(userInput.nextLine());
-                } if (backToMainMenu == 2) {
+                }
+                if (backToMainMenu == 2) {
                     System.out.println("(4) Feed Money \n(5) Select Product \n(6) Finish Transaction");
                     int purchaseMenuReader = Integer.parseInt((userInput.nextLine()));
                     if (purchaseMenuReader == 4) {
@@ -57,54 +56,48 @@ public class MainMenu extends Selection{
                             System.out.printf("Balance: %s\n", moneyMethod.getVendingBalance()); // Balance prints BillReaders Big Decimal
                             System.out.println("(4) Feed Money \n(5) Select Product \n(6) Finish Transaction");
                         }
-                        purchaseMenuReader = Integer.parseInt(userInput.nextLine());
-                        if (purchaseMenuReader == 4) {
-                            System.out.println("Please insert total money");
-//                    String billReader = userInput.nextLine();
-                            // this line turns String into a BigDecimal
-                            moneyMethod.insertMoney(userInput.nextLine());
-                            System.out.printf("Balance: %s\n", moneyMethod.getVendingBalance()); // Balance prints BillReaders Big Decimal
-                            System.out.println("(4) Feed Money \n(5) Select Product \n(6) Finish Transaction");
-                        }
-                        purchaseMenuReader = Integer.parseInt(userInput.nextLine());
-                        if (purchaseMenuReader == 4) {
-                            System.out.println("Please insert total money");
-//                    String billReader = userInput.nextLine();
-                            // this line turns String into a BigDecimal
-                            moneyMethod.insertMoney(userInput.nextLine());
-                            System.out.printf("Balance: %s\n", moneyMethod.getVendingBalance()); // Balance prints BillReaders Big Decimal
-                            System.out.println("(5) Select Product \n(6) Finish Transaction");
-                        } else if (purchaseMenuReader == 5) {
-//                            InventoryFile inventory = new InventoryFile();
-                            System.out.println(file.getInventory()); //can only read the file once, need to access the data structure set up in inventory file
-                            System.out.println("Please select a product");
-                            purchaseMenuReader = Integer.parseInt(userInput.nextLine()); // inventory index calling using position
-
-
-                        } else if (purchaseMenuReader == 6) {
-
-                            System.out.println("Thank you for shopping!");
-                            System.out.println(giveChange);
-
-                        }
-
-                        //billReaderDecimal = feedMoney       feedMoney + vendingBalance
-                        //once you finish a process you can call another method within a method.
-                        // method call out per slection will allow you to request userinput multiple times
-
 
                     }
-                    //BigDecimal billReader = BigDecimal.valueOf(0);
+                    purchaseMenuReader = Integer.parseInt(userInput.nextLine());
+                    if (purchaseMenuReader == 4) {
+                        System.out.println("Please insert total money");
+//                    String billReader = userInput.nextLine();
+                        // this line turns String into a BigDecimal
+                        moneyMethod.insertMoney(userInput.nextLine());
+                        System.out.printf("Balance: %s\n", moneyMethod.getVendingBalance()); // Balance prints BillReaders Big Decimal
+                        System.out.println("(5) Select Product \n(6) Finish Transaction");
+                    }
+                    if (purchaseMenuReader == 5) {
+//                            InventoryFile inventory = new InventoryFile();
+                        System.out.println(file.getInventory()); //can only read the file once, need to access the data structure set up in inventory file
+                        System.out.println("Please select a product");
+                        purchaseMenuReader = Integer.parseInt(userInput.nextLine()); // inventory index calling using position
+
+
+                    } else if (purchaseMenuReader == 6) {
+
+                        System.out.println("Thank you for shopping!");
+                        System.out.println(giveChange);
+
+                    }
+
+                    //billReaderDecimal = feedMoney       feedMoney + vendingBalance
+                    //once you finish a process you can call another method within a method.
+                    // method call out per slection will allow you to request userinput multiple times
 
 
                 }
-                if (mainMenuSelection == 3 || backToMainMenu == 3) {
-                    System.out.println("Transaction Finished");
-                }
+                //BigDecimal billReader = BigDecimal.valueOf(0);
 
 
             }
-        } catch(NumberFormatException e){
+            if (mainMenuSelection == 3 || backToMainMenu == 3) {
+                System.out.println("Transaction Finished");
+            }
+
+
+        } catch (
+                NumberFormatException e) {
             System.out.println("Please enter a number 1, 2, 3, 4, 5 or 6");
         }
 
@@ -115,3 +108,4 @@ public class MainMenu extends Selection{
 
     }
 }
+
