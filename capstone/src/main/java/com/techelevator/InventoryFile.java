@@ -18,14 +18,14 @@ public class InventoryFile {
     public String getInventory() {
         String snacks = "";
         for (Snacks snack : inventory) {
-            snacks = snack.getName() + " " + snack.getCode() + "" + snack.getPrice();
+            snacks += snack.getCode() + "|"+ snack.getName() + "|"+ snack.getPrice() + "|" + "\n";
         }
         return snacks;
 
     }
 
     // Accessing Vending machine file
-    final Scanner inputFile = new Scanner(System.in);
+//    final Scanner inputFile = new Scanner(System.in);
 
     public InventoryFile() {
         final File vendingMachineFile = new File("vendingmachine.csv"); // making file readable
@@ -43,13 +43,13 @@ public class InventoryFile {
                 if (type.equalsIgnoreCase("Chips")) { // inventory will provide location and details when prompted
                     inventory.add(new Chips(code, name, rawPrice, type));
                 } else if (type.equalsIgnoreCase("Candy")) {
-                    inventory.add(new Candy(code, name, price, type));
+                    inventory.add(new Candy(code, name, rawPrice, type));
                 } else if (type.equalsIgnoreCase("Drink")) {
-                    inventory.add(new Drinks(code, name, price, type));
+                    inventory.add(new Drinks(code, name, rawPrice, type));
                 } else if (type.equalsIgnoreCase("Gum")) {
-                    inventory.add(new Gum(code, name, price, type));
+                    inventory.add(new Gum(code, name, rawPrice, type));
                 }
-                System.out.println(line); // On screen String
+//                System.out.println(line); // On screen String
             }
             while (vendingMachineScan.hasNextLine()) {
                 String line = vendingMachineScan.nextLine(); // print scanned words in string for user
@@ -71,12 +71,12 @@ public class InventoryFile {
             vendingMachineFile.getAbsoluteFile();
         }
 
-        try (Scanner itemPickScanner = new Scanner((Readable) inventory)) {
-
-            while (itemPickScanner.hasNextLine()) {
-
-            }
-        }
+//        try (Scanner itemPickScanner = new Scanner((Readable) inventory)) {
+//
+//            while (itemPickScanner.hasNextLine()) {
+//
+//            }
+//        }
 
 
     }

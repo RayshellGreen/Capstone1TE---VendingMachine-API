@@ -12,12 +12,17 @@ public class MainMenu extends Selection{
         super(itemPick);
     }
 
+
+
+
     public static void main(String[] args) {
 
         Finance moneyMethod = new Finance();
         ChangeGiven giveChange = new ChangeGiven();
+        InventoryFile file = new InventoryFile();
 
 
+//        InventoryFile file = new InventoryFile();
         try {
             Scanner userInput = new Scanner(System.in);
             System.out.println("(1) Display Vending Machine Items \n(2) Purchase \n(3) Exit");
@@ -26,7 +31,7 @@ public class MainMenu extends Selection{
 
             int backToMainMenu = 0;
             if (mainMenuSelection == 1) {
-                System.out.println("Potato Crisps \nStackers \nGrain Waves \nCloud Popcorn \nMoonpie \nCowtales \nWonka Bar \nCrunchie \nCola \nDr. Salt \nMountain Melter \nHeavy \nU-Chews \nLittle League Chew \nChiclets \nTriplemint");
+                System.out.println(file.getInventory());
                 System.out.println("(1) Back to Main Menu");
                 backToMainMenu = Integer.parseInt(userInput.nextLine());
                 if (backToMainMenu == 1) {
@@ -70,10 +75,10 @@ public class MainMenu extends Selection{
                             System.out.printf("Balance: %s\n", moneyMethod.getVendingBalance()); // Balance prints BillReaders Big Decimal
                             System.out.println("(5) Select Product \n(6) Finish Transaction");
                         } else if (purchaseMenuReader == 5) {
-                            InventoryFile inventory = new InventoryFile();
-                            System.out.println(inventory.getInventory()); //can only read the file once, need to access the data structure set up in inventory file
+//                            InventoryFile inventory = new InventoryFile();
+                            System.out.println(file.getInventory()); //can only read the file once, need to access the data structure set up in inventory file
                             System.out.println("Please select a product");
-                            purchaseMenuReader = Integer.parseInt(userInput.nextLine()); // inventory index caliin using position
+                            purchaseMenuReader = Integer.parseInt(userInput.nextLine()); // inventory index calling using position
 
 
                         } else if (purchaseMenuReader == 6) {
