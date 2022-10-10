@@ -71,7 +71,7 @@ public class MainMenu {
                             System.out.println("Please select a product");
                             purchaseMenuReader = Integer.parseInt(userInput.nextLine()); // inventory index caliin using position
 
-                        } else if (purchaseMenuReader == 6) {
+                        } if (purchaseMenuReader == 6) {
                             System.out.println("Thank you for shopping!");
                             System.out.println(giveChange);
 
