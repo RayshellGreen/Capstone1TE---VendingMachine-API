@@ -4,9 +4,7 @@ import javax.sound.sampled.Line;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class InventoryFile {
 
@@ -14,6 +12,7 @@ public class InventoryFile {
 
 
     List<Snacks> inventory = new ArrayList<>();
+    Map<String, Snacks> productCatalog = new HashMap<>();
 
     public String getInventory() {
         String snacks = "";
@@ -22,6 +21,18 @@ public class InventoryFile {
         }
         return snacks;
 
+    }
+
+    public Map<String, Snacks> getProductCatalog() {
+        return productCatalog;
+    }
+
+    public String getCatalog() {
+        String snacks = "";
+        for (Map.Entry<String, Snacks> snack : getProductCatalog().entrySet()) {
+            snacks += snack.getValue().getCode() + "|" + snack.getKey() + "|" + snack.getValue().getPrice() + "|" + snack.getValue().getRemainingSnacks() + "\n";
+        }
+        return snacks;
     }
 
     // Accessing Vending machine file
@@ -42,12 +53,16 @@ public class InventoryFile {
                 String type = itemInfo[3]; // type of snack area 3
                 if (type.equalsIgnoreCase("Chips")) { // inventory will provide location and details when prompted
                     inventory.add(new Chips(code, name, rawPrice, type));
+                    productCatalog.put(name, new Chips(code, name, rawPrice, type));
                 } else if (type.equalsIgnoreCase("Candy")) {
                     inventory.add(new Candy(code, name, rawPrice, type));
+                    productCatalog.put(name,new Candy(code, name, rawPrice, type));
                 } else if (type.equalsIgnoreCase("Drink")) {
                     inventory.add(new Drinks(code, name, rawPrice, type));
+                    productCatalog.put(name, new Drinks(code, name, rawPrice, type));
                 } else if (type.equalsIgnoreCase("Gum")) {
                     inventory.add(new Gum(code, name, rawPrice, type));
+                    productCatalog.put(name, new Gum(code, name, rawPrice, type));
                 }
 //                System.out.println(line); // On screen String
             }
