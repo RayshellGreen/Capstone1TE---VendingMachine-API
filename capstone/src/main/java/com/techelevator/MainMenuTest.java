@@ -25,21 +25,21 @@ public class MainMenuTest extends Selection {
         try {
 
             private void run() {
-                boolean isMainMenuRunning = true;
-                while (isMainMenuRunning) {
-                    System.out.println("(1) Display Vending Machine Items \n(2) Purchase \n(3) Exit");
+            boolean isMainMenuRunning = true;
+            while (isMainMenuRunning) {
+                System.out.println("(1) Display Vending Machine Items \n(2) Purchase \n(3) Exit");
 
-                    int mainMenuSelection = Integer.parseInt(userInput.nextLine());
-                    if (mainMenuSelection == 1) {
-                        System.out.println(file.getCatalog());
-                    } else if (mainMenuSelection == 2) {
-                        System.out.println();
-                    } else if (mainMenuSelection == 3) {
-                        System.out.println("You have exited the vending machine");
-                        break;
-                    }
+                int mainMenuSelection = Integer.parseInt(userInput.nextLine());
+                if (mainMenuSelection == 1) {
+                    System.out.println(file.getCatalog());
+                } else if (mainMenuSelection == 2) {
+                    System.out.println();
+                } else if (mainMenuSelection == 3) {
+                    System.out.println("You have exited the vending machine");
+                    break;
                 }
             }
+        }
             private void purchaseMenu() {
                 boolean isPurchaseRunning = true;
                 while (isPurchaseRunning) {
