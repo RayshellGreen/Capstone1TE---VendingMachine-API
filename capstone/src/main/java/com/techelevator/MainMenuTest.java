@@ -3,12 +3,11 @@ package com.techelevator;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class MainMenu extends Selection {
-
+public class MainMenuTest extends Selection {
 
     private BigDecimal vendingBalance;
 
-    public MainMenu(int itemPick) {
+    public MainMenuTest(int itemPick) {
         super(itemPick);
     }
 
@@ -72,44 +71,45 @@ public class MainMenu extends Selection {
                         System.out.println(file.getInventory()); //can only read the file once, need to access the data structure set up in inventory file
                         System.out.println("Please select a product");
                         purchaseMenuReader = Integer.parseInt(userInput.nextLine()); // inventory index calling using position
+                        int itemSelectionReader = Integer.parseInt(userInput.nextLine());
+                        if (itemSelectionReader == 1) {
+                            System.out.println("Please Take Your Potato Crisps");
+                            System.out.println("(1) Buy Something Else \n(2) Exit");
+                            itemSelectionReader = Integer.parseInt(userInput.nextLine());
 
 
-                    } else if (purchaseMenuReader == 6) {
+                        } else if (purchaseMenuReader == 6) {
 
-                        System.out.println("Thank you for shopping!");
-                        System.out.println(giveChange);
+                            System.out.println("Thank you for shopping!");
+                            System.out.println(giveChange);
+
+                        }
+
+                        //billReaderDecimal = feedMoney       feedMoney + vendingBalance
+                        //once you finish a process you can call another method within a method.
+                        // method call out per slection will allow you to request userinput multiple times
+
 
                     }
-
-                    //billReaderDecimal = feedMoney       feedMoney + vendingBalance
-                    //once you finish a process you can call another method within a method.
-                    // method call out per slection will allow you to request userinput multiple times
+                    //BigDecimal billReader = BigDecimal.valueOf(0);
 
 
                 }
-                //BigDecimal billReader = BigDecimal.valueOf(0);
+                if (mainMenuSelection == 3 || backToMainMenu == 3) {
+                    System.out.println("Transaction Finished");
+                }
 
 
             }
-            if (mainMenuSelection == 3 || backToMainMenu == 3) {
-                System.out.println("Transaction Finished");
-            }
-
-
         } catch (
                 NumberFormatException e) {
             System.out.println("Please enter a number 1, 2, 3, 4, 5 or 6");
-        }
 
 //    public BigDecimal getVendingBalance() {
 //        return vendingBalance;
 //    }
 
 
+        }
     }
 }
-
-
-
-
-
