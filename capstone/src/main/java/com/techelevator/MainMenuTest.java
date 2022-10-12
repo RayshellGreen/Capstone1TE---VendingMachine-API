@@ -22,46 +22,46 @@ public class MainMenuTest extends Selection {
         Scanner userInput = new Scanner(System.in);
 
 
-        try {
+       // try {
 
-            private void run() {
-            boolean isMainMenuRunning = true;
-            while (isMainMenuRunning) {
-                System.out.println("(1) Display Vending Machine Items \n(2) Purchase \n(3) Exit");
+      //      private void run() {
+ //           boolean isMainMenuRunning = true;
+   //         while (isMainMenuRunning) {
+//                System.out.println("(1) Display Vending Machine Items \n(2) Purchase \n(3) Exit");
+//
+ //               int mainMenuSelection = Integer.parseInt(userInput.nextLine());
+ //               if (mainMenuSelection == 1) {
+ //                   System.out.println(file.getCatalog());
+   //             } else if (mainMenuSelection == 2) {
+     //               System.out.println();
+       //         } else if (mainMenuSelection == 3) {
+         //           System.out.println("You have exited the vending machine");
+           //         break;
+             //   }
+        //    }
+     //   }
+       //     private void purchaseMenu() {
+         //       boolean isPurchaseRunning = true;
+           //     while (isPurchaseRunning) {
+             //       int purchaseMenuSelection = Integer.parseInt(userInput.nextLine());
+               //     if (purchaseMenuSelection == 1) {
+                 //       System.out.println("Please Insert Money");
+                   //     moneyMethod.insertMoney(userInput.nextLine());
+                     //   System.out.printf("Balance: %s\n", moneyMethod.getVendingBalance());
+                    //} else if (purchaseMenuSelection == 2) {
+                      //  System.out.println(file.getInventory());
+                        //System.out.println("Please select a product");
+                    //} else if (purchaseMenuSelection == 6) {
+                      //  System.out.println("Please Take Your Change");
+                        //break;
+                    //}
 
-                int mainMenuSelection = Integer.parseInt(userInput.nextLine());
-                if (mainMenuSelection == 1) {
-                    System.out.println(file.getCatalog());
-                } else if (mainMenuSelection == 2) {
-                    System.out.println();
-                } else if (mainMenuSelection == 3) {
-                    System.out.println("You have exited the vending machine");
-                    break;
-                }
-            }
-        }
-            private void purchaseMenu() {
-                boolean isPurchaseRunning = true;
-                while (isPurchaseRunning) {
-                    int purchaseMenuSelection = Integer.parseInt(userInput.nextLine());
-                    if (purchaseMenuSelection == 1) {
-                        System.out.println("Please Insert Money");
-                        moneyMethod.insertMoney(userInput.nextLine());
-                        System.out.printf("Balance: %s\n", moneyMethod.getVendingBalance());
-                    } else if (purchaseMenuSelection == 2) {
-                        System.out.println(file.getInventory());
-                        System.out.println("Please select a product");
-                    } else if (purchaseMenuSelection == 6) {
-                        System.out.println("Please Take Your Change");
-                        break;
-                    }
+                //}
 
-                }
-
-            }
-        } catch(
-                NumberFormatException e){
-            System.out.println("Please enter a number 1, 2, 3, 4, 5 or 6");
-        }
+            //}
+        //} catch(
+          //      NumberFormatException e){
+            //System.out.println("Please enter a number 1, 2, 3, 4, 5 or 6");
+        //}
     }
 }
