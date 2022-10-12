@@ -51,7 +51,7 @@ public class MainMenu extends Selection {
                     int purchaseMenuReader = Integer.parseInt((userInput.nextLine()));
                     if (purchaseMenuReader == 4) {
                         //purchase meanu reader .split (\\|
-                        System.out.println("Please insert total money");
+                        System.out.println("Please insert money");
 //                    String billReader = userInput.nextLine();
                         // this line turns String into a BigDecimal
                         moneyMethod.insertMoney(userInput.nextLine());
